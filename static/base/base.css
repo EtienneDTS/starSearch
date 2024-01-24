@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #ffff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+header {
+    background-color: #ffffff00;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+header img {
+    height: 130px;
+    width: 130px;
+    margin-left: 10px;
+
+}
+
+
+nav ul {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+.listMenu {
+    fill: #fff;
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+    filter: invert(100%);
+    display: none;
+    cursor: pointer;
+}
+
+.menuOpen {
+    background-color: rgba(0, 0, 0, 0.837);
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    top: 90px;
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    z-index: 9999999;
+    display: none;
+}
+
+.menuOpen.open {
+    display: block;
+}
+
+.menuOpen ul {
+    list-style: none;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menuOpen li {
+    margin-right: 20px;
+}
+
+.menuOpen a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.menuOpen a:hover {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+.background {
+    background: url("../images/ressources/6943174.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    border-radius: 0 0 50px 50px;
+    color: #fff;
+    
+}
+
+.introduction {
+    display: flex;
+    margin-left: 30px;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #ffd700;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.introduction img {
+    width: 100%;
+    height: 100%;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 400px;
+    height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.searchbar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.searchbar div {
+    background-color: #ffd700;
+    /* Couleur d'accent */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.searchbar div:hover {
+    background-color: #ffd700;
+    
+    /* Couleur d'accent au survol */
+}
+
+.intro-container {
+    width: 500px;
+}
+
+.marketingContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    margin-top: 40px;
+}
+
+.marketing {
+    color: #333;
+    width: 220px;
+    height: 140px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.marketing div {
+    width: 70px;
+    height: 70px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.marketing h3 {
+    margin-bottom: 10px;
+    margin-left: 4px;
+    text-align: center;
+}
+
+.marketing div img {
+   width: 70%;
+   height: 70%;
+   margin-top: 10px;
+}
+
+main {
+    margin-top: 100px;
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    bottom: 0;
+    
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../images/ressources/6943174.jpg");
+    height: 100%;
+    width: 100%;
+    border-radius: 60px 60px 0 0;
+    color: #fff;
+    background-size: cover;
+    
+}
+
+@media(max-width:920px){
+
+    nav {
+        display: none;
+    }
+
+    .box {
+        display: none;
+    }
+
+    .marketingContainer {
+        display: none;
+    }
+
+    .introduction {
+        margin: 0 20px 0 20px;
+    }
+
+    .listMenu {
+        display: block;
+    }
+
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Star Search STUDIO</title>
+    {% endblock %}
+    {% block style %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{url_for('static', filename='base/base.css')}}">
+</head>
+
+<body>
+    <div class="background">
+        <header>
+            <img src="{{url_for('static', filename='images/ressources/logo.png')}}" alt="Logo de l'entreprise">
+            <nav>
+                {% include 'partials/_menu.html' %}
+            </nav>
+            <img src="{{url_for('static', filename='images/ressources/list.svg')}}" alt="menu" class="listMenu">
+            
+                
+        </header>
+
+        <div class="menuOpen">
+            <ul>
+                {% include 'partials/_menu.html' %}
+            </ul>
+        </div>
+
+
+        <div class="introduction">
+            <div class="intro-container">
+                <div>Bienvenu sur Star Search</div>
+                <h1>Le meilleur du jeu d'acteur</h1>
+                <p>Notre outil permet de trouver les acteurs les plus adaptés à vos besoins, de souscrire à des offres,
+                    et d'optimiser vos castings.</p>
+                <div class="searchbar">
+                    <input type="text" placeholder="Trouvez un acteur qui vous correspond">
+                    <div>CHERCHER</div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{{url_for('static', filename='images/ressources/casting-films.png')}}" alt="" class="image">
+            </div>
+        </div>
+
+        <div class="marketingContainer">
+            <div class="marketing">
+                <div><img src="{{url_for('static', filename='images/icons/people-fill.svg')}}" alt=""></div>
+                <h3>Des milliers d'acteurs</h3>
+            </div>
+            <div class="marketing">
+                <div><img src="{{url_for('static', filename='images/icons/bookmark-star-fill.svg')}}" alt=""></div>
+                <h3>Toute catégorie de film</h3>
+            </div>
+            <div class="marketing">
+                <div><img src="{{url_for('static', filename='images/icons/person-heart.svg')}}" alt=""></div>
+                <h3>Simple d'utilisation</h3>
+            </div>
+            <div class="marketing">
+                <div><img src="{{url_for('static', filename='images/icons/battery-charging.svg')}}" alt=""></div>
+                <h3>Puissant et rapide</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+    <footer>
+        <div>
+            <p>&copy; 2023 Star Search. All right reserved.</p>
+        </div>
+        
+    </footer>
+    {% block scripts %}
+    {% endblock %}
+    <script src="{{url_for('static', filename='base/base.js')}}"></script>
+</body>
+
+</html>

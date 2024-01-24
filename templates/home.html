@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block style %}
+ <link rel="stylesheet" href="{{url_for('static', filename='home/home.css')}}">
+{% endblock %}
+
+{% block content %}
+<section id="trends">
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Tendance</span>
+                <h2>Étoiles montantes du cinéma</h2>
+            </div>
+            <button>Tout voir</button>
+        </div>
+        <div class="allItems">
+            <div class="item">
+                <img src="./ressources/actors/denzel-washington.jpeg" alt="Denzel Washington">
+                <div class="item-details">
+                    <div class="name">Denzel Washington</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./ressources/actors/Murphy.jpg" alt="Cillian Murphy">
+                <div class="item-details">
+                    <div class="name">Cillian Murphy</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./ressources/actors/PedroPascal.jpg" alt="Pedro Pascal">
+                <div class="item-details">
+                    <div class="name">Pedro Pascal</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./ressources/actors/anya-egerie-dior-vf-.jpg" alt="Anya Taylor-Joy">
+                <div class="item-details">
+                    <div class="name">Anya Taylor-Joy</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<section id="mostRated">
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Les mieux notés</span>
+                <h2>Les spéctateurs les adorent</h2>
+            </div>
+            <button>Tout voir</button>
+        </div>
+        <div class="allItems">
+            <div class="item">
+                <img src="./ressources/actors/dwayne-johnson.jpg" alt="Image acteur">
+                <div class="item-details">
+                    <div class="name">Dwayne Johnson</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./ressources/actors/ryan-reynolds.jpg" alt="Image acteur">
+                <div class="item-details">
+                    <div class="name">Ryan Reynolds</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./ressources/actors/Jennifer.jpeg" alt="Image acteur">
+                <div class="item-details">
+                    <div class="name">Jennifer Lawrence</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./ressources/actors/emilia-clarke.webp" alt="Image acteur">
+                <div class="item-details">
+                    <div class="name">Emilia Clarke</div>
+                    <div class="contact">
+                        Contacter
+                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section id="genres">
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Genres</span>
+                <h2>Trouvez un acteur qui correspond à votre histoire</h2>
+            </div>
+            <button>Tout voir</button>
+        </div>
+        <div class="allItems">
+            <div class="item filmItem">
+                <img src="./ressources/categories/horror.jpg" alt="image film">
+                <div class="item-details">
+                    <div class="name">Horreur</div>
+                </div>
+            </div>
+
+            <div class="item filmItem">
+                <img src="./ressources/categories//romance.jpg" alt="image film">
+                <div class="item-details">
+                    <div class="name">Romance</div>
+                </div>
+            </div>
+
+            <div class="item filmItem">
+                <img src="./ressources/categories/action.jpg" alt="image film">
+                <div class="item-details">
+                    <div class="name">Action</div>
+                </div>
+            </div>
+
+            <div class="item filmItem">
+                <img src="./ressources/categories/thriller.jpg" alt="image film horreur">
+                <div class="item-details">
+                    <div class="name">Thriller</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section id="offers">
+    <h2>Nos Offres</h2>
+    <div class="offerContainer">
+        <div class="offer" id="producerOffer">
+            <h3>Producteurs</h3>
+            <ul>
+                <li>- Un accès complet à la plateforme pendant 3 mois</li>
+                <li>- Trouver l'acteur parfait pour votre film</li>
+                <li>- Faites votre choix parmis des milliers d'acteurs</li>
+                <li>- Contact direct possible</li>
+                <li>- Utiliser des filtres avancés</li>
+                <li>- Profils diversifiés d'acteurs talentueux.</li>
+                <li>- Interface conviviale pour gérer vos projets</li>
+                <li>- Support client dédié pour répondre à vos besoins</li>
+                <li>- Éviter les processus de casting traditionnels et gagnez du temps</li>
+                <li>- Mises à jour régulières de la base de données avec de nouveaux talents</li>
+                <li>- Une tarification simple, pas de frais cachés</li>
+
+            </ul>
+            <div class="price">999,99€</div>
+            <button>RÉSERVER</button>
+
+        </div>
+
+        <div class="offer" id="actorOffer">
+            <h3>Acteurs</h3>
+            <ul>
+                <li>- Un accès complet à la plateforme</li>
+                <li>- Les producteurs vous retrouve plus facilement</li>
+                <li>- Modifier votre profil</li>
+                <li>- Résiliable à tout moment</li>
+                <li>- 15 jours d'essai gratuit</li>
+                <li>- Créer un portfolio dynamique avec des vidéos, des photos et des détails artistiques</li>
+                <li>- Recever des notifications instantanées quand un producteur visite votre profil</li>
+                <li>- Accéder à des statistiques détaillées sur la visibilité de votre profil</li>
+                <li>- Bénéficier d'un accès exclusif aux dernières opportunités de casting avant qu'elles ne soient
+                    publiques</li>
+
+
+            </ul>
+            <div class="price">29,99 € par mois</div>
+            <button>SOUSCRIRE</button>
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='home/home.js')}}"></script>
+{% endblock %}
