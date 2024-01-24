@@ -15,7 +15,7 @@
 <body>
     <div class="background">
         <header>
-            <img src="{{url_for('static', filename='images/ressources/logo.png')}}" alt="Logo de l'entreprise">
+            <a href="{{url_for('home')}}"><img src="{{url_for('static', filename='images/ressources/logo.png')}}" alt="Logo de l'entreprise"></a>
             <nav>
                 {% include 'partials/_menu.html' %}
             </nav>

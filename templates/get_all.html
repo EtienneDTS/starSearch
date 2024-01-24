@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block style %}
+ <link rel="stylesheet" href="{{url_for('static', filename='get_all/get_all.css')}}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <h2>{{title}}</h2>
+            </div>
+        </div>
+        <div class="allItems">
+            {% for item in data %}
+            <div class="item">
+                {%if item.name  and item.profile_path %}
+                <img src="{{back_drop_path}}{{item.profile_path}}" alt="{{item.name}}">
+                {% elif item.name and not item.profile_path %}
+                <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
+                {% elif item.title and item.poster_path%}
+                <img src="{{back_drop_path}}{{item.poster_path}}" alt="{{item.title}}" >
+                {% elif item.title and not item.poster_path %}
+                <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
+                {% endif %}
+                <div class="item-details">
+                    <div class="name">{%if item.name %}{{item.name}}{% else %}{{item.title}}{% endif %}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="page_manager">
+        <div class="items">
+            <a href="{{url_for('get_all', keyword=keyword, page=1)}}" class="start"><<</a>
+            <a href="{{url_for('get_all', keyword=keyword, page=previous_page)}}" class="previous"><</a>
+            <div>Page <span class="current_page" value="{{page}}">{{page}}</span> sur <span class="max_page" value="{{max_page}}">{{max_page}}</span></div>
+            <a href="{{url_for('get_all', keyword=keyword, page=next_page)}}" class="next">></a>
+            <a href="{{url_for('get_all', keyword=keyword, page=max_page)}}" class="end">>></a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='get_all/get_all.js')}}"></script>
+{% endblock %}

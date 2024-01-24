@@ -14,56 +14,24 @@
         <div class="banner">
             <div>
                 <span>Tendance</span>
-                <h2>Étoiles montantes du cinéma</h2>
+                <h2>En tendance cette semaine</h2>
             </div>
-            <button>Tout voir</button>
+            <a class="btn" href="{{url_for('get_all', keyword='trending_actors', page=1)}}">Tout voir</a>
         </div>
         <div class="allItems">
+            {% for actor in trending_actors %}
             <div class="item">
-                <img src="./ressources/actors/denzel-washington.jpeg" alt="Denzel Washington">
+                <img src="{{back_drop_path}}{{actor.profile_path}}" alt="{{actor.name}}">
                 <div class="item-details">
-                    <div class="name">Denzel Washington</div>
+                    <div class="name">{{actor.name}}</div>
                     <div class="contact">
                         Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                        <img src="{{url_for('static', filename='images/ressources/chat-dots-fill.svg')}}" alt="ChatIcon">
                     </div>
                 </div>
             </div>
 
-            <div class="item">
-                <img src="./ressources/actors/Murphy.jpg" alt="Cillian Murphy">
-                <div class="item-details">
-                    <div class="name">Cillian Murphy</div>
-                    <div class="contact">
-                        Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="./ressources/actors/PedroPascal.jpg" alt="Pedro Pascal">
-                <div class="item-details">
-                    <div class="name">Pedro Pascal</div>
-                    <div class="contact">
-                        Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="./ressources/actors/anya-egerie-dior-vf-.jpg" alt="Anya Taylor-Joy">
-                <div class="item-details">
-                    <div class="name">Anya Taylor-Joy</div>
-                    <div class="contact">
-                        Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
-                    </div>
-                </div>
-            </div>
-
-
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -77,54 +45,22 @@
                 <span>Les mieux notés</span>
                 <h2>Les spéctateurs les adorent</h2>
             </div>
-            <button>Tout voir</button>
+            <a class="btn" href="{{url_for('get_all', keyword='famous_actors', page=1)}}">Tout voir</a>
         </div>
         <div class="allItems">
+            {% for actor in famous_actors %}
             <div class="item">
-                <img src="./ressources/actors/dwayne-johnson.jpg" alt="Image acteur">
+                <img src="{{back_drop_path}}{{actor.profile_path}}" alt="{{actor.name}}">
                 <div class="item-details">
-                    <div class="name">Dwayne Johnson</div>
+                    <div class="name">{{actor.name}}</div>
                     <div class="contact">
                         Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
+                        <img src="{{url_for('static', filename='images/ressources/chat-dots-fill.svg')}}" alt="ChatIcon">
                     </div>
                 </div>
             </div>
 
-            <div class="item">
-                <img src="./ressources/actors/ryan-reynolds.jpg" alt="Image acteur">
-                <div class="item-details">
-                    <div class="name">Ryan Reynolds</div>
-                    <div class="contact">
-                        Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="./ressources/actors/Jennifer.jpeg" alt="Image acteur">
-                <div class="item-details">
-                    <div class="name">Jennifer Lawrence</div>
-                    <div class="contact">
-                        Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="./ressources/actors/emilia-clarke.webp" alt="Image acteur">
-                <div class="item-details">
-                    <div class="name">Emilia Clarke</div>
-                    <div class="contact">
-                        Contacter
-                        <img src="./ressources/chat-dots-fill.svg" alt="Chat">
-                    </div>
-                </div>
-            </div>
-
-
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -135,39 +71,21 @@
         <div class="banner">
             <div>
                 <span>Genres</span>
-                <h2>Trouvez un acteur qui correspond à votre histoire</h2>
+                <h2>Acteurs de vos films preférés</h2>
             </div>
-            <button>Tout voir</button>
+            <a class="btn" href="{{url_for('get_all', keyword='trending_films', page=1)}}">Tout voir</a>
         </div>
         <div class="allItems">
-            <div class="item filmItem">
-                <img src="./ressources/categories/horror.jpg" alt="image film">
+
+            {% for film in trending_films %}
+            <div class="item filmItem" style="background-image: url('{{back_drop_path}}{{film.poster_path}}');">
+                
                 <div class="item-details">
-                    <div class="name">Horreur</div>
+                    <div class="name">{{film.title}}</div>
                 </div>
             </div>
-
-            <div class="item filmItem">
-                <img src="./ressources/categories//romance.jpg" alt="image film">
-                <div class="item-details">
-                    <div class="name">Romance</div>
-                </div>
-            </div>
-
-            <div class="item filmItem">
-                <img src="./ressources/categories/action.jpg" alt="image film">
-                <div class="item-details">
-                    <div class="name">Action</div>
-                </div>
-            </div>
-
-            <div class="item filmItem">
-                <img src="./ressources/categories/thriller.jpg" alt="image film horreur">
-                <div class="item-details">
-                    <div class="name">Thriller</div>
-                </div>
-            </div>
-
+            {% endfor %}
+            
 
         </div>
     </div>

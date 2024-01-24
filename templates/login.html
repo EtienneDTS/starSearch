@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block style %}
+ <link rel="stylesheet" href="{{url_for('static', filename='login/login.css')}}">
+{% endblock %}
+
+{% block content %}
+<form method="POST" class="form" action="{{url_for('login')}}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" class="token" />
+    {% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+    <div class="container">
+        <div>
+            <label for="email">Adresse email de l'entreprise</label>
+            <input name="email" type="email" class="email" required >
+        </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password">
+        </div>
+        <button type="submit">Se Connecter</button>
+        <a href="url_for('register')">Pas encore inscrit ?</a>
+    </div>
+</form>
+{% endblock %}
+
