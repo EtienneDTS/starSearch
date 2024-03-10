@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block style %}
- <link rel="stylesheet" href="{{url_for('static', filename='get_all/get_all.css')}}">
+ <link rel="stylesheet" href="{{url_for('static', filename='get_all.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -19,17 +19,17 @@
         <div class="allItems">
             {% for item in data %}
             <div class="item">
-                {%if item.name  and item.profile_path %}
-                <img src="{{back_drop_path}}{{item.profile_path}}" alt="{{item.name}}">
-                {% elif item.name and not item.profile_path %}
+                {%if keyword == "films" or keyword == "series" and item[9]%}
+                <img src="{{item[9]}}" alt="{{item[1]}}">
+                {% elif keyword == "films" or keyword == "series" and not item[9] %}
                 <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
-                {% elif item.title and item.poster_path%}
-                <img src="{{back_drop_path}}{{item.poster_path}}" alt="{{item.title}}" >
-                {% elif item.title and not item.poster_path %}
+                {% elif keyword == "acteurs" and item[3] %}
+                <img src="{{item[3]}}" alt="{{item.title}}" >
+                {% elif keyword == "acteurs" and not item[3]  %}
                 <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
                 {% endif %}
                 <div class="item-details">
-                    <div class="name">{%if item.name %}{{item.name}}{% else %}{{item.title}}{% endif %}</div>
+                    <div class="name">{{item[1]}}</div>
                 </div>
             </div>
             {% endfor %}
@@ -37,11 +37,11 @@
     </div>
     <div class="page_manager">
         <div class="items">
-            <a href="{{url_for('get_all', keyword=keyword, page=1)}}" class="start"><<</a>
-            <a href="{{url_for('get_all', keyword=keyword, page=previous_page)}}" class="previous"><</a>
+            <a href="{{url_for('page_get_all', keyword=keyword, page=1)}}" class="start"><<</a>
+            <a href="{{url_for('page_get_all', keyword=keyword, page=previous_page)}}" class="previous"><</a>
             <div>Page <span class="current_page" value="{{page}}">{{page}}</span> sur <span class="max_page" value="{{max_page}}">{{max_page}}</span></div>
-            <a href="{{url_for('get_all', keyword=keyword, page=next_page)}}" class="next">></a>
-            <a href="{{url_for('get_all', keyword=keyword, page=max_page)}}" class="end">>></a>
+            <a href="{{url_for('page_get_all', keyword=keyword, page=next_page)}}" class="next">></a>
+            <a href="{{url_for('page_get_all', keyword=keyword, page=max_page)}}" class="end">>></a>
         </div>
 
     </div>
@@ -49,5 +49,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{url_for('static', filename='get_all/get_all.js')}}"></script>
+<script src="{{url_for('static', filename='get_all.js')}}"></script>
 {% endblock %}

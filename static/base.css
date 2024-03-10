@@ -118,7 +118,7 @@ nav a:hover {
 }
 
 .background {
-    background: url("../images/ressources/6943174.jpg");
+    background: url("./images/ressources/6943174.jpg");
     background-size: cover;
     width: 100%;
     height: 500px;
@@ -247,7 +247,7 @@ footer div {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("../images/ressources/6943174.jpg");
+    background: url("./images/ressources/6943174.jpg");
     height: 100%;
     width: 100%;
     border-radius: 60px 60px 0 0;

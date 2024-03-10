@@ -9,13 +9,13 @@
     {% endblock %}
     {% block style %}
     {% endblock %}
-    <link rel="stylesheet" href="{{url_for('static', filename='base/base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
 </head>
 
 <body>
     <div class="background">
         <header>
-            <a href="{{url_for('home')}}"><img src="{{url_for('static', filename='images/ressources/logo.png')}}" alt="Logo de l'entreprise"></a>
+            <a href="{{url_for('page_home')}}"><img src="{{url_for('static', filename='images/ressources/logo.png')}}" alt="Logo de l'entreprise"></a>
             <nav>
                 {% include 'partials/_menu.html' %}
             </nav>
@@ -84,7 +84,7 @@
     </footer>
     {% block scripts %}
     {% endblock %}
-    <script src="{{url_for('static', filename='base/base.js')}}"></script>
+    <script src="{{url_for('static', filename='base.js')}}"></script>
 </body>
 
 </html>
