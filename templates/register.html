@@ -10,11 +10,13 @@
 
 {% block content %}
 
-<form method="POST" class="container" action="{{url_for('page_register')}}">
-    {% if message %}
-    <h2>{{message}}</h2>
-    {% endif %}
+<form method="POST" class="form" action="{{url_for('page_register')}}">
+
+
     <div class="container">
+        {% if message %}
+        <span class="message">{{message}}</span>
+        {% endif %}
         <div>
             <label for="name">Nom</label>
             <input name="lastname" type="text" required>
@@ -31,15 +33,20 @@
             <label for="password">Mot de passe</label>
             <input type="password" name="password">
         </div>
-        <hr>
-
         <div>
             <label for="password">Confirmer le mot de passe</label>
             <input type="password" name="password2">
         </div>
-        <hr>
-        <h3>Vous travaillez pour un studio ?</h3>
-        <a href="#">Procédure d'inscription pour un studio</a>
+
+
+
+
+        <div>
+            <h3>Vous travaillez pour un studio ?</h3>
+            <a href="#">Procédure d'inscription pour un studio</a>
+        </div>
+
+
 
         <button type="submit">S'inscrire</button>
         <a href="{{url_for('page_login')}}">Déjà inscrit ?</a>

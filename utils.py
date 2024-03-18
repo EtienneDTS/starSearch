@@ -1,5 +1,8 @@
 import sqlite3
 import os
+from flask_bcrypt import Bcrypt
+from app import app
+
 
 path = "./database.db"
 
@@ -26,3 +29,6 @@ def query_db(query, params=None):
     metadata = cursor.description
     connexion.close()
     return result, metadata
+
+bcrypt = Bcrypt(app)
+

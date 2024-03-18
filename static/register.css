@@ -1,62 +1,91 @@
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin-top: 140px;
+    margin-bottom: 200px;
+    background-color: black;
+    background: url("./images/ressources/6943174.jpg");
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
-.container h2 {
-    margin-top: 0;
-    color: #333;
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.container div {
-    margin-bottom: 20px;
+.container>div {
+    width: 100%;
+    margin: 10px 0;
+
 }
 
-.container label {
+
+
+
+
+.container label,
+.container h3 {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    color: #fff;
 }
 
-.container input[type="text"],
-.container input[type="email"],
-.container input[type="password"] {
+.container input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
 
-.container hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
+.container input:focus {
+    outline: none;
+    border-color: #ffd700;
 }
 
 .container button[type="submit"] {
-    background-color: #007bff;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    background-color: #ffd700;
     color: #fff;
-    padding: 10px 20px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin: 20px 0;
+
 }
 
 .container button[type="submit"]:hover {
-    background-color: #0056b3;
+
+    background-color: #e5bb00;
 }
 
 .container a {
-    text-decoration: none;
-    color: #007bff;
-    margin-left: 10px;
+    text-decoration: underline;
+    color: #ffd700;
 }
 
 .container a:hover {
     text-decoration: underline;
+}
+
+.message {
+    color: crimson;
+    margin: 20px 0;
+
 }
