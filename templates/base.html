@@ -37,10 +37,10 @@
                 <h1>Le meilleur du jeu d'acteur</h1>
                 <p>Notre outil permet de trouver les acteurs les plus adaptés à vos besoins, de souscrire à des offres,
                     et d'optimiser vos castings.</p>
-                <div class="searchbar">
-                    <input type="text" placeholder="Trouvez un acteur qui vous correspond">
-                    <div>CHERCHER</div>
-                </div>
+                <form class="searchbar" method="GET" action="{{url_for('page_find')}}">
+                    <input type="text" placeholder="Trouvez un acteur qui vous correspond" name="search_request">
+                    <button>CHERCHER</button>
+                </form>
             </div>
             <div class="box">
                 <img src="{{url_for('static', filename='images/ressources/casting-films.png')}}" alt="" class="image">

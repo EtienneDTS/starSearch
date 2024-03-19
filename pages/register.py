@@ -4,10 +4,11 @@ from datetime import datetime
 
 
 
+
 def page_register():
     if request.method == "POST":
-        nomU = request.form.get("firstname")
-        prenomU = request.form.get("lastname")
+        nomU = request.form.get("lastname")
+        prenomU = request.form.get("firstname")
         passwordU = request.form.get("password")
         passwordU2 = request.form.get("password2")
         emailU = request.form.get("email")

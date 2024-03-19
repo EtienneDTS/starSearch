@@ -10,10 +10,11 @@
 
 {% block content %}
 <form method="POST" class="form" action="{{url_for('page_login')}}">
-    {% if message %}
-    <h2>{{message}}</h2>
-    {% endif %}
+    
     <div class="container">
+        {% if message %}
+        <span class="message">{{message}}</span>
+        {% endif %}
         <div>
             <label for="email">Adresse email</label>
             <input name="email" type="email" class="email" required >

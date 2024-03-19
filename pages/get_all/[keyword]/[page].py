@@ -1,8 +1,19 @@
 from utils import query_db
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 
 def page_get_all(keyword: str, page: int):
     page = int(page)
+    filter = request.args.get("filter", None)
+    if filter != None:
+        arg, order = filter.split()
+    gender = request.args.get("gender", None)
+    if gender and gender in ("1", "2"):
+        # Ajout du 0 car deux parametres sont attendus
+        gender = [int(gender), 0]
+    else:
+        # par defaut tout les genres
+        gender = [1, 2]    
+    
     if page < 1:
         return redirect(url_for('page_get_all', keyword=keyword, page=1))
 
@@ -15,7 +26,10 @@ def page_get_all(keyword: str, page: int):
     }
     
     if keyword == "films":
-        query = "select * from FilmSerie where formatFS = 'F'  order by voteFS desc"
+        title = "Tous les films"
+        query = "select * from FilmSerie where formatFS = 'F'  order by voteFS"
+        if filter != None:
+            query = f"select * from FilmSerie where formatFS = 'F' order by {arg} {order}; "
         result = query_db(query)[0]
         context["max_page"] = len(result) // 20
         if len(result) % 20 != 0:
@@ -24,7 +38,10 @@ def page_get_all(keyword: str, page: int):
         
         
     elif keyword == "series":
+        title = "Toutes les series"
         query = "select * from FilmSerie where formatFS = 'S'  order by voteFS desc"
+        if filter != None:
+            query = f"select * from FilmSerie where formatFS = 'S' order by {arg} {order}; "
         result = query_db(query)[0]
         context["max_page"] = len(result) // 20
         if len(result) % 20 != 0:
@@ -32,8 +49,11 @@ def page_get_all(keyword: str, page: int):
         context["data"] = result[start:end]
         
     elif keyword == "acteurs":
-        query = "select * from acteur order by popularity desc"
-        result = query_db(query)[0]
+        title = "Tous les acteurs"
+        query = f"select * from acteur where genreA in (?,?);"
+        if filter != None:
+            query = f"select * from acteur where genreA in (?,?) order by {arg} {order};"
+        result = query_db(query, gender)[0]
         context["max_page"] = len(result) // 20
         if len(result) % 20 != 0:
             context["max_page"] += 1
@@ -48,4 +68,4 @@ def page_get_all(keyword: str, page: int):
         context["next_page"] = context["max_page"]
     else:
         context["next_page"] = page + 1
-    return render_template("get_all.html", **context)
+    return render_template("get_all.html", **context, title=title, filter=filter, gender=gender)
