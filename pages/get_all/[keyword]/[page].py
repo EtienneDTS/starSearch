@@ -25,6 +25,14 @@ def page_get_all(keyword: str, page: int):
         "page": page,
     }
     
+    if keyword == "acteurs":
+        detail_keyword = "acteur"
+    elif keyword == "films" or keyword == "series":
+        detail_keyword = "FilmSerie"
+    context["detail_keyword"] = detail_keyword    
+    print(context["detail_keyword"])
+    
+    
     if keyword == "films":
         title = "Tous les films"
         query = "select * from FilmSerie where formatFS = 'F'  order by voteFS"

@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Home</title>
+<title>Get All</title>
 {% endblock %}
 
 {% block style %}
- <link rel="stylesheet" href="{{url_for('static', filename='get_all.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='get_all.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -18,60 +18,66 @@
         </div>
         <form class="filter" method="GET">
             <select name="filter" id="">
-                
+
                 {% if keyword == "acteurs" %}
-                <option value="popularity desc" {% if filter == "popularity desc" %} selected {% endif %}>Plus populaire</option>
-                <option value="popularity asc" {% if filter == "popularity asc" %} selected {% endif %}>Moins Populaire</option>
-                <option value="nomA asc" {% if filter == "nomA asc" %} selected {% endif %}>Nom croissant</option>
-                <option value="nomA desc" {% if filter == "nomA desc" %} selected {% endif %}>Nom décroissant</option>
+                <option value="popularity desc" {% if filter=="popularity desc" %} selected {% endif %}>Plus populaire
+                </option>
+                <option value="popularity asc" {% if filter=="popularity asc" %} selected {% endif %}>Moins Populaire
+                </option>
+                <option value="nomA asc" {% if filter=="nomA asc" %} selected {% endif %}>Nom croissant</option>
+                <option value="nomA desc" {% if filter=="nomA desc" %} selected {% endif %}>Nom décroissant</option>
                 {% elif keyword == "films" or keyword == "series" %}
-                <option value="voteFS asc" {% if filter == "voteFS asc" %} selected {% endif %}>Avis croissant</option>
-                <option value="voteFS desc" {% if filter == "voteFS desc" %} selected {% endif %}>Avis décroissant</option>
-                <option value="nomFS asc" {% if filter == "nomFS asc" %} selected {% endif %}>Titre croissant</option>
-                <option value="nomFS desc" {% if filter == "nomFS desc" %} selected {% endif %}>Titre décroissant</option>
-                <option value="date(dateFS) asc" {% if filter == "date(dateFS) asc" %} selected {% endif %}>Date de sortie croissante</option>
-                <option value="date(dateFS) desc" {% if filter == "date(dateFS) desc" %} selected {% endif %}>Date de sortie décroissante</option>
+                <option value="voteFS asc" {% if filter=="voteFS asc" %} selected {% endif %}>Avis croissant</option>
+                <option value="voteFS desc" {% if filter=="voteFS desc" %} selected {% endif %}>Avis décroissant
+                </option>
+                <option value="nomFS asc" {% if filter=="nomFS asc" %} selected {% endif %}>Titre croissant</option>
+                <option value="nomFS desc" {% if filter=="nomFS desc" %} selected {% endif %}>Titre décroissant</option>
+                <option value="date(dateFS) asc" {% if filter=="date(dateFS) asc" %} selected {% endif %}>Date de sortie
+                    croissante</option>
+                <option value="date(dateFS) desc" {% if filter=="date(dateFS) desc" %} selected {% endif %}>Date de
+                    sortie décroissante</option>
                 {% endif %}
             </select>
             {% if keyword == "acteurs" %}
             <select name="gender" id="">
-                <option value="1,2" {% if gender == [1,2] %}selected {% endif %}>Tous</option>
-                <option value="2" {% if gender == [2,0] %}selected {% endif %}>Homme</option>
-                <option value="1" {% if gender == [1,0] %}selected {% endif %}>Femme</option>
+                <option value="1,2" {% if gender==[1,2] %}selected {% endif %}>Tous</option>
+                <option value="2" {% if gender==[2,0] %}selected {% endif %}>Homme</option>
+                <option value="1" {% if gender==[1,0] %}selected {% endif %}>Femme</option>
             </select>
             {% endif %}
             <button>Trier</button>
-            
+
         </form>
         <div class="allItems">
-            
+
             {% for item in data %}
             <div class="item">
-                {%if keyword == "films" or keyword == "series" and item[9]%}
-                <img src="{{item[9]}}" alt="{{item[1]}}">
-                {% elif keyword == "films" or keyword == "series" and not item[9] %}
-                <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
-                {% elif keyword == "acteurs" and item[3] %}
-                <img src="{{item[3]}}" alt="{{item.title}}" >
-                {% elif keyword == "acteurs" and not item[3]  %}
-                <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
-                {% endif %}
-                <div class="item-details">
-                    <div class="name">{{item[1]}}</div>
-                </div>
+                <a href="{{url_for('page_detail', keyword=detail_keyword, id=item[0] )}}">
+                    {%if keyword == "films" or keyword == "series" and item[9]%}
+                    <img src="{{item[9]}}" alt="{{item[1]}}">
+                    {% elif keyword == "films" or keyword == "series" and not item[9] %}
+                    <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
+                    {% elif keyword == "acteurs" and item[3] %}
+                    <img src="{{item[3]}}" alt="{{item.title}}">
+                    {% elif keyword == "acteurs" and not item[3] %}
+                    <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
+                    {% endif %}
+                    <div class="item-details">
+                        <div class="name">{{item[1]}}</div>
+                    </div>
+                </a>
             </div>
             {% endfor %}
         </div>
     </div>
     <div class="page_manager">
         <div class="items">
-            <a href="{{url_for('page_get_all', keyword=keyword, page=1, **request.args)}}" class="start"><<</a>
-            <a href="{{url_for('page_get_all', keyword=keyword, page=previous_page, **request.args)}}" class="previous"><</a>
+            <a href="{{url_for('page_get_all', keyword=keyword, page=1, **request.args)}}" class="start"> << </a>
+            <a href="{{url_for('page_get_all', keyword=keyword, page=previous_page, **request.args)}}" class="previous"> < </a>
             <div>Page <span class="current_page" value="{{page}}">{{page}}</span> sur <span class="max_page" value="{{max_page}}">{{max_page}}</span></div>
             <a href="{{url_for('page_get_all', keyword=keyword, page=next_page, **request.args)}}" class="next">></a>
             <a href="{{url_for('page_get_all', keyword=keyword, page=max_page, **request.args)}}" class="end">>></a>
         </div>
-
     </div>
 </section>
 {% endblock %}

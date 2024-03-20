@@ -38,7 +38,7 @@
                 <p>Notre outil permet de trouver les acteurs les plus adaptés à vos besoins, de souscrire à des offres,
                     et d'optimiser vos castings.</p>
                 <form class="searchbar" method="GET" action="{{url_for('page_find')}}">
-                    <input type="text" placeholder="Trouvez un acteur qui vous correspond" name="search_request">
+                    <input type="text" placeholder="Trouvez un acteur, film, serie ..." name="search_request" value="{{search_request}}">
                     <button>CHERCHER</button>
                 </form>
             </div>
