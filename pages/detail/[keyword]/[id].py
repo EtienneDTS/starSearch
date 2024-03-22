@@ -66,7 +66,7 @@ def page_detail(keyword, id):
         genres = query_db(query, params)[0]
         context["genres"] = genres
         percentage = context["item"][5] * 10
-        context["percentage"] = percentage
+        context["percentage"] = "{:.2f}".format(percentage)
         date = context["item"][6]
         date = datetime.strptime(date, "%Y-%m-%d")
         date = date.strftime("%d/%m/%Y")

@@ -75,6 +75,24 @@ section {
     transform: translateY(-5px);
 }
 
+.filmItem .item-details {
+    height: 100%;
+}
+
+.filmItem .item-details .name {
+    font-size: 40px;
+    height: 100%;
+    color: #33333300;
+    transform: translateY(70px);
+    transition: color 0.5s ease-in-out;
+}
+
+.filmItem .item-details .name:hover {
+    color: #fff;
+}
+
+
+
 .item img {
     width: 100%;
     height: 60%;
@@ -92,11 +110,14 @@ section {
 }
 
 .name {
-    font-size: 10px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #f8f8f8;
+    width: 100%;
+    height: 100%;
 }
+
+
 
 .contact {
     display: flex;
@@ -131,12 +152,7 @@ section {
 
 
 
-.filmItem .name {
 
-
-    font-weight: bold;
-    font-size: 50px;
-}
 
 
 #offers {
