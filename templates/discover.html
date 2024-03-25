@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Discover</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='find.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Genres</span>
+                <h2>Connaissez-vous les genres les plus adaptés de l'acteur préféré des utilisateurs ?</h2>
+            </div>
+        </div>
+        <div class="allItems">
+            <h3>{{trend_actor}}</h3>
+            <img src="{{url_for('static', filename='charts/pie.png')}}" alt="" height="600" width="600">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Cocorico</span>
+                <h2>Saviez-vous que des acteurs français jouent dans des comédies américaine ?</h2>
+            </div>
+        </div>
+        <div class="allItems">
+            {% for actor in french %}
+            <div class="item">
+                <a href="{{url_for('page_detail', keyword='acteur', id=actor[1])}}">
+                    {%if actor[2]%}
+                    <img src="{{actor[2]}}" alt="{{actor[1]}}">
+                    {% else %}
+                    <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
+                    {% endif %}
+                    <div class="item-details">
+                        <div class="name">{{actor[0]}}</div>
+                    </div>
+                </a>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
