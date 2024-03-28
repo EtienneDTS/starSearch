@@ -7,7 +7,7 @@ def page_info():
         message = "Un message a été envoyé à l'acteur " + actor_name
     else:
         price = request.form.get("price")
-        message = "Nous avons reçu votre paiement de " + price + "€. Nous espérons que vous appricez notre service !"
+        message = "Nous avons reçu votre paiement de " + price + ". Nous espérons que vous appricez notre service !"
         
     return render_template("info.html", message=message)
 
