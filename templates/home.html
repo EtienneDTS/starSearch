@@ -25,11 +25,6 @@
                     <img src="{{actor[3]}}" alt="{{actor[1]}}">
                     <div class="item-details">
                         <div class="name">{{actor[1]}}</div>
-                        <div class="contact">
-                            Contacter
-                            <img src="{{url_for('static', filename='images/ressources/chat-dots-fill.svg')}}"
-                                alt="ChatIcon">
-                        </div>
                     </div>
                 </a>
             </div>
@@ -114,7 +109,7 @@
 
             </ul>
             <div class="price">999,99€</div>
-            <button>RÉSERVER</button>
+            <a href="{{url_for('page_offer', price='999,99 €')}}" class="offer_btn">Souscrire</a>
 
         </div>
 
@@ -135,7 +130,7 @@
 
             </ul>
             <div class="price">29,99 € par mois</div>
-            <button>SOUSCRIRE</button>
+            <a href="{{url_for('page_offer', price='29,99 €')}}" class="offer_btn">S'abonner</a>
         </div>
     </div>
 

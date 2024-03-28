@@ -23,10 +23,7 @@ def page_detail(keyword, id):
         return redirect(url_for("page_home"))
     params = [id]
     item = query_db(query, params)[0][0]
-    print(item)
     context["item"] = item
-    
-    
     
     if keyword == "acteur":
         query = """select FS.refFS, FS.nomFS, FS.poster_path, 'FilmSerie' as keyword 
@@ -50,7 +47,6 @@ def page_detail(keyword, id):
         and FS.refFS = J.refFS;"""
     params = [id]
     data = query_db(query, params)[0]
-    
     context["data"] = data
     context["keyword"] = keyword
     context["languages"] = languages
@@ -71,6 +67,7 @@ def page_detail(keyword, id):
         date = datetime.strptime(date, "%Y-%m-%d")
         date = date.strftime("%d/%m/%Y")
         context["date"] = date
+        
     return render_template("detail.html", **context)
 
 

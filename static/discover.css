@@ -4,8 +4,9 @@ section {
     margin-bottom: 100px;
     background-color: #f8f8f8;
     padding: 50px 0;
-
+    
 }
+
 
 
 
@@ -16,24 +17,27 @@ section {
 
 .banner {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    width: 98%;
+    justify-content: space-between;
     align-items: center;
     margin: 0 10px 30px 10px;
 }
 
+.banner-content {
+    text-align: left;
+}
 
+.banner span {
+    font-size: 18px;
+    color: #ffd700;
+}
 
 .banner h2 {
     font-size: 32px;
-
+    margin: 10px 0;
 }
 
-
-
-
-
-.banner button {
+.banner .btn {
     background-color: #ffd700;
     color: #fff;
     padding: 10px 20px;
@@ -45,7 +49,7 @@ section {
     margin-right: 5px;
 }
 
-button:hover {
+.btn:hover {
     background-color: #e5bb00;
 
 }
@@ -53,8 +57,16 @@ button:hover {
 .allItems {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
 }
+
+.allItems.chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
 
 .item {
     width: 100%;
@@ -81,7 +93,7 @@ button:hover {
     border-bottom: 2px solid #ffd700;
 }
 
-.item>a {
+.item > a {
     text-decoration: none;
     width: 100%;
     height: 100%;
@@ -100,15 +112,25 @@ button:hover {
 
 
 
+
+
+
+
+
+
+
+
+
 @media(max-width:1060px) {
 
     section {
         height: auto;
     }
 
+    
 
     .allItems {
-
+        flex-wrap: wrap;
         height: auto;
         display: flex;
         justify-content: center;
@@ -116,7 +138,7 @@ button:hover {
 
     }
 
-
+    
 
 }
 
@@ -134,44 +156,4 @@ button:hover {
         flex-direction: column;
     }
 
-}
-
-/* info.html */
-
-
-.info_section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-.tContainer.info {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0;
-    font-size: 20px;
-}
-
-.tContainer.info .btn {
-    text-align: center;
-    line-height: 35px;
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
-    height: 40px;
-    background-color: #ffd700;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin: 20px 0;
-}
-
-.tContainer.info .btn:hover {
-    background-color: #e5bb00;
 }

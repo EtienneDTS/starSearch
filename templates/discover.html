@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="{{url_for('static', filename='find.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='discover.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -15,16 +15,16 @@
         <div class="banner">
             <div>
                 <span>Genres</span>
-                <h2>Connaissez-vous les genres les plus adaptés de l'acteur préféré des utilisateurs ?</h2>
+                <h2>Connaissez-vous les genres où l'acteur préféré des utilisateurs à le plus joué ?</h2>
             </div>
         </div>
-        <div class="allItems">
+        <div class="allItems chart">
             <h3>{{trend_actor}}</h3>
             <img src="{{url_for('static', filename='charts/pie.png')}}" alt="" height="600" width="600">
         </div>
     </div>
 </section>
-
+<div class="separator"></div>
 <section>
     <div class="tContainer">
         <div class="banner">
@@ -49,6 +49,52 @@
             </div>
 
             {% endfor %}
+        </div>
+    </div>
+</section>
+<div class="separator"></div>
+<section>
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Rentabilité</span>
+                <h2>Connaissez-vous la rentabilité par film de l'acteur ayant joué dans le plus de film sur notre plateforme ?</h2>
+            </div>
+        </div>
+        <div class="allItems chart">
+            <h3>{{actor_name}}</h3>
+            <img src="{{url_for('static', filename='charts/bar.png')}}" alt="" height="600" width="600">
+        </div>
+    </div>
+</section>
+<div class="separator"></div>
+<section>
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Bon à savoir</span>
+                <h2>Savez-vous que le genre Action est de plus en plus apprécié par nos utilisateurs ?</h2>
+            </div>
+        </div>
+        <div class="allItems chart">
+            <h3>Popularité des films d'action</h3>
+            <img src="{{url_for('static', filename='charts/line.png')}}" alt="" height="600" width="600">
+        </div>
+    </div>
+</section>
+<div class="separator"></div>
+<section>
+    <div class="tContainer">
+        <div class="banner">
+            <div>
+                <span>Diversité</span>
+                <h2>
+                    Savez-vous dans quels studios peut-on constater la plus grande diversité linguistique d’acteur dans leurs production cinématographique ?
+                </h2>
+            </div>
+        </div>
+        <div class="allItems chart">
+            <img src="{{url_for('static', filename='charts/barh.png')}}" alt="" height="600" width="700" class="hbar">
         </div>
     </div>
 </section>

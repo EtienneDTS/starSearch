@@ -13,7 +13,6 @@ def page_get_all(keyword: str, page: int):
     else:
         # par defaut tout les genres
         gender = [1, 2]    
-    
     if page < 1:
         return redirect(url_for('page_get_all', keyword=keyword, page=1))
 
@@ -30,9 +29,7 @@ def page_get_all(keyword: str, page: int):
     elif keyword == "films" or keyword == "series":
         detail_keyword = "FilmSerie"
     context["detail_keyword"] = detail_keyword    
-    print(context["detail_keyword"])
-    
-    
+
     if keyword == "films":
         title = "Tous les films"
         query = "select * from FilmSerie where formatFS = 'F'  order by voteFS"
@@ -76,4 +73,5 @@ def page_get_all(keyword: str, page: int):
         context["next_page"] = context["max_page"]
     else:
         context["next_page"] = page + 1
+        
     return render_template("get_all.html", **context, title=title, filter=filter, gender=gender)

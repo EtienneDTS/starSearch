@@ -15,4 +15,5 @@ def page_home():
         "trending_series": trending_series,
         "trending_films": trending_films,
     }
+    
     return render_template('home.html', **context)

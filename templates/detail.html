@@ -17,6 +17,7 @@
         {% else %}
         <img src="{{url_for('static', filename='images/ressources/notfound.jpg')}}">
         {% endif %}
+
         <div class="data">
             <h1>{{item[1]}}</h1>
             <div>
@@ -30,6 +31,7 @@
         </div>
     </div>
 </div>
+
 {% elif keyword == "FilmSerie" %}
 <div class="head FS">
     <img src="{{item[10]}}" alt="" class="poster">
@@ -86,13 +88,22 @@
                         <img src="{{language[0]}}" alt="" class="flag">
                         {% endfor %}
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 {% endif %}
+
+{% if keyword == "FilmSerie" and item[11]%}
+<div class="resume">
+    <p>{{item[11]}}</p>
+</div>
+
+
+{% endif %}
+
 <section>
     <div class="tContainer">
         <div class="banner">
@@ -104,6 +115,7 @@
                 {% endif %}
             </div>
         </div>
+
         <div class="allItems">
 
             {% for item in data %}
@@ -123,15 +135,18 @@
 
             {% endfor %}
         </div>
-
+    </div>
 </section>
+
 {% if keyword == "acteur" %}
 <div class="contact">
     <h2>Contacter l'acteur</h2>
-    <form method="POST" action="{{url_for('page_contact', id=id)}}">
+    <form method="POST" action="{{url_for('page_info')}}">
         <div>
             <textarea name="message" cols="30" rows="10"></textarea>
         </div>
+        <input type="hidden" value="contact" name="key">
+        <input type="hidden" value="{{item[1]}}" name="actor_name">
         <button>Envoyer</button>
     </form>
 

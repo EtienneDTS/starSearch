@@ -58,22 +58,9 @@ section {
     justify-content: space-around;
 }
 
-.item {
-    width: 100%;
-    max-width: 260px;
-    height: 260px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
 
-.item:hover {
-    transform: translateY(-5px);
-}
+
+
 
 .filmItem .item-details {
     height: 100%;
@@ -93,44 +80,44 @@ section {
 
 
 
+.item {
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 10px;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
 .item img {
     width: 100%;
-    height: 60%;
+    height: 80%;
     object-fit: cover;
     border-bottom: 2px solid #ffd700;
 }
 
-
-
-.item>a {
+.item > a {
     text-decoration: none;
     width: 100%;
     height: 100%;
     color: #333;
 }
 
+
+
 .name {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 5px;
-    width: 100%;
-    height: 100%;
-}
-
-
-
-.contact {
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-
-}
-
-.contact img {
-    width: 20px;
-    height: 20px;
-    border: none;
-
+    margin-top: 10px;
 }
 
 .filmItem {
@@ -217,7 +204,8 @@ section {
     font-size: 20px;
 }
 
-#offers button {
+#offers .offer_btn {
+    text-align: center;
     background-color: #ffd700;
     color: #fff;
     padding: 10px 15px;
@@ -229,7 +217,7 @@ section {
     font-weight: bold;
 }
 
-#offers button:hover {
+#offers .offer_btn:hover {
     background-color: #e5bb00;
 }
 

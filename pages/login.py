@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask_bcrypt import Bcrypt
+from flask import render_template, request, redirect, url_for, session
 from utils import query_db, bcrypt
 
 def page_login():
@@ -12,7 +11,6 @@ def page_login():
         if len(result[0]) == 0:
             message = "L'email ou le mot de passe est incorrect"
             return render_template("login.html", message=message)
-        print(result[0][0])
         if bcrypt.check_password_hash(result[0][0][3], passwordU):
             session["user"] = {
                 "id": result[0][0][0],
