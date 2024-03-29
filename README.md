@@ -20,6 +20,14 @@ Star Search is a casting management application designed as part of a university
 
 pip install -r requirements.txt
 
+or 
+
+pip install flask
+pip install Flask-Bcrypt
+pip install pandas
+pip install matplotlib
+pip install python-dotenv
+
 ## License
 
 This project is licensed under the MIT License:
